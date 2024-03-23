@@ -1,11 +1,11 @@
 node {
     stage('SCM') {
-        git branch: 'main', credentialsId: '20225586', url: 'https://github.com/Son0ngu/Project1.git'
+        git branch: 'main', credentialsId: '20225586', url: 'https://github.com/Son0ngu/Project1'
     }
     stage('SonarQube Analysis') {
         def scannerHome = tool 'SonarQube Scanner'
-        withSonarQubeEnv() {
-            sh "${scannerHome}/bin/sonar-scanner -Dsonar.java.binaries=. -Dsonar.projectKey=Project1 -Dsonar.login=sqa_0fabeb4de4d6f88265c9ad293eff938c0b3374b2"
+        withSonarQubeEnv('SonarQube Server') {
+            sh "${scannerHome}/bin/sonar-scanner -Dsonar.java.binaries=. -Dsonar.projectKey=project1 -Dsonar.login=sqa_22e4bd1f7c2d01a0c12eb8d0b9958f8efa5e2b21"
         }
     }
 }
