@@ -1,0 +1,38 @@
+Create table Admin (
+admin_id integer primary key,
+
+);
+
+Create table all_user (
+user_id integer primary key,
+first_name varchar(20),
+last_name varchar(20),
+email varchar(100),
+pasword varchar(50),
+gender int,			/* 1 = male, 2 = female*/
+birth date,
+phone_number integer,
+role int NOT NULL,/* 3 = seller, 4 = customer */
+);
+
+Create table vat_pham (
+item_id integer primary key,
+name varchar(100),
+detail varchar(1000),
+gia_khoi_diem integer, /* tính bằng vnđ*/
+user_id  integer not null,
+Admin_id integer,  /* quản lí tương tác vật phẩm*/
+phien_dau_gia date,
+id_phong_dau_gia integer
+
+);
+
+
+Create table phong_dau_gia (
+id_phong_dau_gia integer primary key,
+thoi_gian_ket_thuc date,
+id_nguoi_thang integer,
+gia_cuoi integer,
+bill varchar(1000)
+);
+ 
