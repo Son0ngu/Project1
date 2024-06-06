@@ -2,10 +2,6 @@ package Main.Auction;
 
 import java.util.Scanner;
 
-import Main.Room;
-import Main.User.ListOfUser;
-import Main.User.User;
-
 public class BidController {
 	
 

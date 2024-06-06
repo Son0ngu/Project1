@@ -7,10 +7,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import Main.Auction.Bid;
-import Main.Items.Item;
-import Main.User.User;
-
 public class Room {
 	
 	private String roomID;

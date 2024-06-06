@@ -1,7 +1,5 @@
 package Main;
 
-import Main.User.User;
-
 public class Notification {
 	
 	private String message;

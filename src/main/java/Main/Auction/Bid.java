@@ -2,9 +2,6 @@ package Main.Auction;
 
 import java.util.ArrayList;
 
-import Main.Items.Item;
-import Main.User.User;
-
 public class Bid {
 	
 	private static int bidCounter = 0;
