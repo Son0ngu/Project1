@@ -74,7 +74,8 @@ body {
     display: flex;
     align-items: center;
 }
-.content .bidding-info .price-calc div {
+.content .bidding-info .price-calc div,
+.content .bidding-info .price-calc button {
     margin: 0 5px;
 }
 .content .bidding-info button {
