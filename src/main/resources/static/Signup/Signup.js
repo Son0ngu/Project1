@@ -4,7 +4,10 @@ async function submitForm() {
     const password = document.getElementsByClassName("Password")[0].value;
     const phone = document.getElementsByClassName("phone")[0].value;
     const address = document.getElementsByClassName("address")[0].value;
-    // const avatar = document.getElementsByClassName("avatar")[0].value;
+
+    // Hash and salt the password using bcryptjs
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     try {
         const response = await fetch('/Signup.app', {
@@ -12,27 +15,31 @@ async function submitForm() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ Email: Email, username: username, password: password, phone: phone, address: address})
+            body: JSON.stringify({
+                Email: Email,
+                username: username,
+                password: hashedPassword, // Use the hashed password
+                phone: phone,
+                address: address
+            })
         });
 
         if (response.status === 200) {
             const data = await response.json();
             const message = data.message;
-            const userIdMatch = message.match(/User ID: (\d+)/); // Lấy ID người dùng
+            const userIdMatch = message.match(/User ID: (\d+)/);
 
             alert(data.message);
             if (userIdMatch && userIdMatch[1]) {
                 const userId = userIdMatch[1];
-                localStorage.setItem('userId', userId); // Lưu trữ ID người dùng
-                console.log(message); // In ra thông báo từ server
-                // Register thành công, redirect sang homepage.html
+                localStorage.setItem('userId', userId);
+                console.log(message);
                 window.location.href = `Homepage.html?id=${userId}`;
             } else {
                 console.error("There's something wrong in signup function");
             }
         } else if (response.status === 401) {
             const data = await response.json();
-            // Register thất bại, hiển thị thông báo lỗi
             alert(data.message);
             console.log(data);
             console.log(response);
@@ -40,11 +47,10 @@ async function submitForm() {
             const data = await response.json();
             console.log(data);
             console.log(response);
-            // Xử lý các trường hợp lỗi khác
             alert(data.message || 'An unknown error occurred.');
         }
     } catch (error) {
-        console.error('Error during login request:', error);
+        console.error('Error during signup request:', error);
         alert('An error occurred. Please try again.');
     }
 }

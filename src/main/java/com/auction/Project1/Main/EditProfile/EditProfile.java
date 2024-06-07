@@ -33,7 +33,7 @@ public class EditProfile {
         private String phone;
     }
 
-    @PostMapping("/editprofile.app")
+    @PostMapping("/EditProfile.app")
     public ResponseEntity<String> editProfile(@RequestBody EditProfile.editProfileInfo editProfileInfo){
         System.out.println("Connected successfully");
         StringBuilder updateQuery = getStringBuilder(editProfileInfo);
