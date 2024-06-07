@@ -13,19 +13,19 @@
     <form>
         <h1>Sign up</h1>
         <div class="textBox">
-            <input type="text" placeholder="Email">
+            <input name="username" type="text" placeholder="Email*" class="Email" required/>
         </div>
         <div class="textBox">
-            <input type="text" placeholder="Username">
+            <input name="username" type="text" placeholder="Username*" class="username" required/>
         </div>
         <div class="textBox">
-            <input type="number" placeholder="Phone number">
+            <input name="phone" type="text" placeholder="Phone Number*" class="phone" required/>
         </div>
         <div class="textBox">
-            <input type="password" placeholder="Enter Password">
+            <input name="password" type="password" placeholder="Password*" class="password" required/>
         </div>
         <div class="textBox">
-            <input type="password" placeholder="Enter Password again">
+            <input name="address" type="text" placeholder="Address*" class="address" required/>
         </div>
         <input type="submit" value="Signup" class="SignupBtn">
         <div class="signup">
@@ -35,4 +35,6 @@
         </div>
     </form>
     </body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="Signup.js"></script>
     </html>

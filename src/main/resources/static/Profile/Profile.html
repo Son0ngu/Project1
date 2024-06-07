@@ -1,119 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bidding Ez</title>
-
-    <!-- favicon -->
-    <link rel="shortcut icon" href="./Assets/" type="image/x-icon">
-
-    <!-- custom css link -->
+    <title>User Profile</title>
     <link rel="stylesheet" href="Profile.css">
-
-    <!-- google font link -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-          rel="stylesheet">
-
 </head>
-
 <body>
-<!-- NOTIFICATION TOAST -->
-<div class="notification-toast" data-toast>
-    <button class="toast-close-btn" data-toast-close>
-        <ion-icon name="close-outline"></ion-icon>
-    </button>
-
-    <div class="toast-banner">
-        <img src="https://cdn.mos.cms.futurecdn.net/akkaK79zfXQVom7VkQvfY5.jpg" alt="Rose Gold Earrings" width="80"
-             height="70">
-    </div>
-
-    <div class="toast-detail">
-
-        <p class="toast-message">
-            Someone in new just bought
-        </p>
-
-        <p class="toast-title">
-            Razer Viper 8kHz
-        </p>
-
-        <p class="toast-meta">
-            <time datetime="PT2M">2 Minutes</time> ago
-        </p>
-
-    </div>
+<div class="profile-header">
+    <button class="Home">Homepage</button>
+    <button class="edit-profile-btn">Edit Profile</button>
 </div>
 
-<!-- HEADER -->
-<header>
-    <div class="header-top">
-        <div class="container">
-            <ul class="header-social-container">
-
-                <li>
-                    <a href="#" class="social-link">
-                        <ion-icon name="logo-facebook"></ion-icon>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#" class="social-link">
-                        <ion-icon name="logo-twitter"></ion-icon>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#" class="social-link">
-                        <ion-icon name="logo-instagram"></ion-icon>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#" class="social-link">
-                        <ion-icon name="logo-linkedin"></ion-icon>
-                    </a>
-                </li>
-
-            </ul>
-
-            <div class="header-alert-news">
-                <p>
-                    <b>Frontend by</b>
-                    Exomuk
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="header-main">
-        <div class="container">
-            <a href="#" class="header-logo">
-                <h3 style="color: black !important;" class="header-logo">Auction Website</h3>
-            </a>
-
-            <div class="header-user-actions">
-
-                <button class="action-btn">
-                    <ion-icon name="person-outline"></ion-icon>
-                </button>
-
-                <button class="action-btn">
-                    <ion-icon name="bag-handle-outline"></ion-icon>
-                    <span class="count">0</span>
-                </button>
-
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- MAIN -->
 <main>
     <form class="editProfile" onsubmit="event.preventDefault(); submitForm()">
         <h1 class="editProfile1">Edit your profile</h1>
@@ -133,95 +31,69 @@
     </div>
 </main>
 
-<!-- FOOTER -->
-<footer>
-    <div class="footer-nav">
-        <div class="container">
-            <ul class="footer-nav-list">
-                <li class="footer-nav-item">
-                    <h2 class="nav-title">Popular Categories</h2>
-                </li>
+<div class="profile-section">
+    <h2>Auction Activity</h2>
+    <h3>Current Bids</h3>
+    <ul>
+        <li>Item: Vintage Watch - Current Bid: $150 - Time Remaining: 2h 30m</li>
+        <li>Item: Antique Vase - Current Bid: $75 - Time Remaining: 1d 5h</li>
+    </ul>
 
-                <li class="footer-nav-item">
-                    <a href="#" class="footer-nav-link">Fashion</a>
-                </li>
+    <h3>Watchlist</h3>
+    <ul>
+        <li>Item: Rare Coin - Current Bid: $200 - Time Remaining: 3h 45m</li>
+        <li>Item: Classic Car Model - Current Bid: $300 - Time Remaining: 2d 1h</li>
+    </ul>
 
-                <li class="footer-nav-item">
-                    <a href="#" class="footer-nav-link">Electronic</a>
-                </li>
+    <h3>Won Auctions</h3>
+    <ul>
+        <li>Item: Vintage Lamp - Winning Bid: $100 - Date Won: 01/02/2024</li>
+        <li>Item: Old Book - Winning Bid: $50 - Date Won: 01/15/2024</li>
+    </ul>
 
-                <li class="footer-nav-item">
-                    <a href="#" class="footer-nav-link">Cosmetic</a>
-                </li>
+    <h3>Selling</h3>
+    <ul>
+        <li>Item: Handmade Jewelry - Current Bid: $45 - Time Remaining: 1d 2h</li>
+        <li>Item: Art Print - Current Bid: $60 - Time Remaining: 3d 4h</li>
+    </ul>
+</div>
 
-                <li class="footer-nav-item">
-                    <a href="#" class="footer-nav-link">Health</a>
-                </li>
+<div class="profile-section">
+    <h2>Ratings and Reviews</h2>
+    <p><strong>Buyer Rating:</strong> 4.5/5</p>
+    <p><strong>Seller Rating:</strong> 4.8/5</p>
+    <h3>Reviews</h3>
+    <ul>
+        <li>Reviewer: Alice - Review: Great buyer! - Rating: 5/5 - Date: 02/01/2024</li>
+        <li>Reviewer: Bob - Review: Fast payment, smooth transaction. - Rating: 4/5 - Date: 01/25/2024</li>
+    </ul>
+</div>
 
-                <li class="footer-nav-item">
-                    <a href="#" class="footer-nav-link">Watches</a>
-                </li>
-            </ul>
+<div class="profile-section">
+    <h2>Payment Methods</h2>
+    <p>Credit Card ending in 1234</p>
+    <button class="add-payment-method-btn">Add Payment Method</button>
+</div>
 
-            <ul class="footer-nav-list">
-                <li class="footer-nav-item">
-                    <h2 class="nav-title">Our Company</h2>
-                </li>
+<div class="profile-section">
+    <h2>Security Settings</h2>
+    <button class="change-password-btn">Change Password</button>
+    <button class="toggle-2fa-btn">Enable Two-Factor Authentication</button>
+</div>
 
-                <li class="footer-nav-item">
-                    <a href="#" class="footer-nav-link">Lorem ipsum</a>
-                </li>
+<div class="profile-section">
+    <h2>Notifications</h2>
+    <h3>Email Notifications</h3>
+    <p><input type="checkbox" checked> New bids on watched items</p>
+    <p><input type="checkbox" checked> Auction won/lost notifications</p>
+    <p><input type="checkbox" checked> New reviews</p>
 
-                <li class="footer-nav-item">
-                    <a href="#" class="footer-nav-link">About us</a>
-                </li>
-            </ul>
-
-            <ul class="footer-nav-list">
-                <li class="footer-nav-item">
-                    <h2 class="nav-title">Contact</h2>
-                </li>
-
-                <li class="footer-nav-item flex">
-                    <div class="icon-box">
-                        <ion-icon name="location-outline"></ion-icon>
-                    </div>
-
-                    <address class="content">
-                        No.1 Dai Co Viet, Viet Nam
-                    </address>
-                </li>
-
-                <li class="footer-nav-item flex">
-                    <div class="icon-box">
-                        <ion-icon name="call-outline"></ion-icon>
-                    </div>
-
-                    <a href="tel:+607936-8058" class="footer-nav-link">(123) 456-7890</a>
-                </li>
-
-                <li class="footer-nav-item flex">
-                    <div class="icon-box">
-                        <ion-icon name="mail-outline"></ion-icon>
-                    </div>
-
-                    <a href="mailto:example@gmail.com" class="footer-nav-link">example@gmail.com</a>
-                </li>
-            </ul>
-
-            <ul class="footer-nav-list"></ul>
-        </div>
-    </div>
-
-
-
-<!-- custom js link -->
-<script src="Profile.js"></script>
-
-<!-- ionicon link -->
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+    <h3>SMS Notifications</h3>
+    <p><input type="checkbox"> New bids on watched items</p>
+    <p><input type="checkbox"> Auction won/lost notifications</p>
+    <p><input type="checkbox"> New reviews</p>
+</div>
 </body>
+<script src="Profile.js"></script>
 
 </html>

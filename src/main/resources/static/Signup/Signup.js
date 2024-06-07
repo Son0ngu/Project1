@@ -1,6 +1,7 @@
 async function submitForm() {
+    const Email = document.getElementsByClassName("Email")[0].value;
     const username = document.getElementsByClassName("username")[0].value;
-    const password = document.getElementsByClassName("password")[0].value;
+    const password = document.getElementsByClassName("Password")[0].value;
     const phone = document.getElementsByClassName("phone")[0].value;
     const address = document.getElementsByClassName("address")[0].value;
     // const avatar = document.getElementsByClassName("avatar")[0].value;
@@ -11,7 +12,7 @@ async function submitForm() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ username: username, password: password, phone: phone, address: address})
+            body: JSON.stringify({ Email: Email, username: username, password: password, phone: phone, address: address})
         });
 
         if (response.status === 200) {

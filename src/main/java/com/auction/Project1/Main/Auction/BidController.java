@@ -1,5 +1,8 @@
 package com.auction.Project1.Main.Auction;
 
+import com.auction.Project1.Main.Room;
+import com.auction.Project1.Main.User.User;
+
 import java.util.Scanner;
 
 public class BidController {

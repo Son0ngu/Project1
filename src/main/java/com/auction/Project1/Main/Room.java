@@ -1,5 +1,9 @@
 package com.auction.Project1.Main;
 
+import com.auction.Project1.Main.Auction.Bid;
+import com.auction.Project1.Main.Items.Item;
+import com.auction.Project1.Main.User.User;
+
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Scanner;
