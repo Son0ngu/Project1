@@ -15,6 +15,10 @@ public class ListOfUser {
         users.add(user);
     }
 
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
 
     public void displayUsers() {
         for (User user : users) {
@@ -22,16 +26,21 @@ public class ListOfUser {
         }
     }
 
+
+
     public static void main(String[] args) {
         ListOfUser LOU = new ListOfUser();
 
         System.out.println("Enter credentials for user 1:");
         User user = User.inputCredentials();
+
+
+
         LOU.addUser(user);
 
-        
-        System.out.println("\nList of users:");
         LOU.displayUsers();
 
+        System.out.println("\nList of users:");
+        System.out.println(LOU.getUsers());
     }
 }
