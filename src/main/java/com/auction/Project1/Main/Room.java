@@ -1,8 +1,4 @@
-package com.auction.Project1.Main;
-
-import com.auction.Project1.Main.Auction.Bid;
-import com.auction.Project1.Main.Items.Item;
-import com.auction.Project1.Main.User.User;
+package Main;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -10,6 +6,10 @@ import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+
+import Main.Bid.Bid;
+import Main.Item.Item;
+import Main.User.User;
 
 public class Room {
 	
@@ -84,7 +84,7 @@ public class Room {
         ArrayList<Item> items = Item.getItems();
         Item item = null;
         for (Item it : items) {
-            if (it.getItemID() == itemID && it.isAvailable()) {
+            if (it.getItemID().equals(itemID) && it.isAvailable()) {
                 item = it;
                 break;
             }
@@ -137,7 +137,7 @@ public class Room {
         ArrayList<Item> items = Item.getItems();
         ArrayList<Bid> bids = Bid.getBids();
         for (Item item : items) {
-            if (item.getItemID() == String.valueOf(itemID) && item.isAvailable()) {
+            if (item.getItemID().equals(itemID) && item.isAvailable()) {
                 Bid bid = new Bid(itemID, userID, amount);
                 bids.add(bid);
                 System.out.println("Bid placed: " + bid);
@@ -152,7 +152,7 @@ public class Room {
  
         ArrayList<Item> items = Item.getItems();
         for (Item item : items) {
-            if (item.getItemID() == itemID) {
+            if (item.getItemID().equals(itemID)) {
                 item.markAsSold();
                 System.out.println("Item ID " + itemID + " has been marked as sold.");
                 return;

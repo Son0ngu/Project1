@@ -1,8 +1,10 @@
-package com.auction.Project1.Main.Auction;
-
-import com.auction.Project1.Main.Items.Item;
+package Main.Bid;
 
 import java.util.ArrayList;
+
+import Main.Item.Item;
+
+
 
 public class Bid {
 	
