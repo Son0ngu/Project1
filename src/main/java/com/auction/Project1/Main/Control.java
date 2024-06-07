@@ -1,4 +1,4 @@
-package Main;
+package com.auction.Project1.Main;
 
 public class Control {
 	

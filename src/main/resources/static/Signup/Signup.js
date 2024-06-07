@@ -25,9 +25,9 @@ async function submitForm() {
                 localStorage.setItem('userId', userId); // Lưu trữ ID người dùng
                 console.log(message); // In ra thông báo từ server
                 // Register thành công, redirect sang homepage.html
-                window.location.href = `homepage.html?id=${userId}`;
+                window.location.href = `Homepage.html?id=${userId}`;
             } else {
-                console.error("There's something wrong in register function");
+                console.error("There's something wrong in signup function");
             }
         } else if (response.status === 401) {
             const data = await response.json();

@@ -1,4 +1,4 @@
-package Main.Login;
+package com.auction.Project1.Main.Login;
 
 import lombok.Getter;
 import lombok.Setter;

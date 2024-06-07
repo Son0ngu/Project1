@@ -1,4 +1,4 @@
-package Main;
+package com.auction.Project1.Main;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

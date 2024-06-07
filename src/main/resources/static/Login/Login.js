@@ -6,7 +6,7 @@ async function submitForm() {
     console.log(username + password);
 
     try {
-        const response = await fetch('/login.app', {
+        const response = await fetch('/Login.app', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -25,7 +25,7 @@ async function submitForm() {
                 localStorage.setItem('userId', userId); // Lưu trữ ID người dùng
                 console.log(message); // In ra thông báo từ server
                 // Login thành công, redirect sang homepage.html
-                window.location.href = `homepage.html?id=${userId}`;
+                window.location.href = `Homepage.html?id=${userId}`;
             } else {
                 console.error("There's something wrong in login function");
             }

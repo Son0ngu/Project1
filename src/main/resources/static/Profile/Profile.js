@@ -25,7 +25,7 @@ async function submitForm() {
     console.log(editProfileInfo);
 
     try {
-        const response = await fetch('/editprofile.app', {
+        const response = await fetch('/EditProfile.app', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -56,12 +56,12 @@ async function submitForm() {
 
 function createRoom() {
     const userId = localStorage.getItem('userId');
-    window.location.href = `add_room.html?id=${userId}`;
+    window.location.href = `Bidding room.html?id=${userId}`;
 }
 
 var returnHomepage = function() {
     const userId = localStorage.getItem('userId');
-    window.location.href = `homepage.html?id=${userId}`;
+    window.location.href = `Homepage.html`;
 };
 
 for (var i = 0; i < headerLogo.length; i++) {

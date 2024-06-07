@@ -1,4 +1,6 @@
-package Main;
+package com.auction.Project1.Main;
+
+import com.auction.Project1.Main.User.User;
 
 public class Notification {
 	

@@ -1,4 +1,4 @@
-package Main.Signup;
+package com.auction.Project1.Main.Signup;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -35,7 +35,7 @@ public class Signup {
     }
 
     @PostMapping("/Login.app")
-    public ResponseEntity<Map<String, String>> register(@RequestBody loginInfo loginInfo) {
+    public ResponseEntity<Map<String, String>> Login(@RequestBody loginInfo loginInfo) {
         String checkUserQuery = "SELECT COUNT(*) FROM master.dbo.[user] WHERE username = ? OR phone = ?";
         String registerQuery = "INSERT INTO master.dbo.[user] (username, password, phone, address) VALUES (?, ?, ?, ?)";
 

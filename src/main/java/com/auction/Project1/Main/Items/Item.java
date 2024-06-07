@@ -1,4 +1,4 @@
-package Main.Items;
+package com.auction.Project1.Main.Items;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;

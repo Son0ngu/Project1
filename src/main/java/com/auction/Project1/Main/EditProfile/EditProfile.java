@@ -1,4 +1,4 @@
-package Main.EditProfile;
+package com.auction.Project1.Main.EditProfile;
 
 import lombok.Getter;
 import lombok.Setter;

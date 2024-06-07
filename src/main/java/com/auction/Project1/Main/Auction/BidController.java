@@ -1,4 +1,4 @@
-package Main.Auction;
+package com.auction.Project1.Main.Auction;
 
 import java.util.Scanner;
 
