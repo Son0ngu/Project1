@@ -10,18 +10,24 @@ public class DB_Connection {
 		String password = "Nguyen2004Fg";
 		
 		Connection connection = null;
-        Statement statement = null;
+
 		
 		try {
 			connection = DriverManager.getConnection(url, username, password);
 			
 			System.out.println("Okay bruh");
 			
-			String sql = "INSERT INTO Users (username, password, userID, name) VALUES ('nguyen', 'password', '12345678', 'name')";
+			String sql = "INSERT INTO Users (username, password, userID, name) VALUES (?, ?, ? , ?)";
 			
-			statement = connection.createStatement();
+			PreparedStatement statement = connection.prepareStatement(sql);
 			
-			int rows = statement.executeUpdate(sql);
+			statement.setString(1, "admin");
+			statement.setString(2, "password");
+			statement.setString(3, "123123");
+			statement.setString(4, "Nguyen");
+		
+			
+			int rows = statement.executeUpdate();
 			
 			if (rows > 0) {
 				System.out.println("Row added");
@@ -36,7 +42,6 @@ public class DB_Connection {
 		} finally {
 
             try {
-                if (statement != null) statement.close();
                 if (connection != null) connection.close();
             } catch (SQLException e) {
                 e.printStackTrace();
