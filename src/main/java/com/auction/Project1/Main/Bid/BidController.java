@@ -1,4 +1,4 @@
-package com.auction.Project1.Main.Auction;
+package com.auction.Project1.Main.Bid;
 
 import com.auction.Project1.Main.Room;
 import com.auction.Project1.Main.User.User;
@@ -18,7 +18,7 @@ public class BidController {
     }
 
     public static void main(String[] args) {
-        Bid bid = new Bid();
+        com.auction.Project1.Main.Bid.Bid bid = new com.auction.Project1.Main.Bid.Bid();
 
         Room room = new Room();
 

@@ -1,7 +1,8 @@
 package com.auction.Project1.Main;
 
-import com.auction.Project1.Main.Auction.Bid;
-import com.auction.Project1.Main.Items.Item;
+
+
+import com.auction.Project1.Main.Item.Item;
 import com.auction.Project1.Main.User.User;
 
 import java.security.SecureRandom;
@@ -136,10 +137,10 @@ public class Room {
 
     public void placeBid(String itemID, String userID, float amount) {
         ArrayList<Item> items = Item.getItems();
-        ArrayList<Bid> bids = Bid.getBids();
+        ArrayList<com.auction.Project1.Main.Bid.Bid> bids = com.auction.Project1.Main.Bid.Bid.getBids();
         for (Item item : items) {
             if (item.getItemID().equals(itemID) && item.isAvailable()) {
-                Bid bid = new Bid(itemID, userID, amount);
+                com.auction.Project1.Main.Bid.Bid bid = new com.auction.Project1.Main.Bid.Bid(itemID, userID, amount);
                 bids.add(bid);
                 System.out.println("Bid placed: " + bid);
                 return;

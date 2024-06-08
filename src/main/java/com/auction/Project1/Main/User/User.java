@@ -1,6 +1,6 @@
 package com.auction.Project1.Main.User;
 
-import com.auction.Project1.Main.Items.Item;
+import com.auction.Project1.Main.Item.Item;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;

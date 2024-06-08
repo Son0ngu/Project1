@@ -20,8 +20,11 @@ import java.util.Map;
 @RestController
 
 public class Signup {
-    @Autowired
-    private DataSource dataSource;
+    private final DataSource dataSource;
+
+    public Signup(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     @Getter
     @Setter
@@ -37,7 +40,7 @@ public class Signup {
     @PostMapping("/Login.app")
     public ResponseEntity<Map<String, String>> Login(@RequestBody loginInfo loginInfo) {
         String checkUserQuery = "SELECT COUNT(*) FROM master.dbo.[user] WHERE username = ? OR phone = ?";
-        String registerQuery = "INSERT INTO master.dbo.[user] (username, password, phone, address) VALUES (?, ?, ?, ?)";
+        String registerQuery = "INSERT INTO master.dbo.[user] (username, password, phone_number, address) VALUES (?, ?, ?, ?)";
 
         // Hash the password
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();

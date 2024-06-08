@@ -23,8 +23,11 @@ import java.util.Map;
 @RestController
 
 public class Login {
-    @Autowired
-    private DataSource dataSource;
+    private final DataSource dataSource;
+
+    public Login(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     @Getter
     @Setter
@@ -34,7 +37,7 @@ public class Login {
         private String password;
     }
 
-    @PostMapping("/login.app")
+    @PostMapping("/Login.app")
     public ResponseEntity<Map<String, String>> login(@RequestBody loginInfo loginInfo) {
         System.out.println("Connected successfully");
         String loginQuery = "SELECT id, password FROM master.dbo.[user] WHERE username = ?";
