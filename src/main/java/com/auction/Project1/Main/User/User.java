@@ -1,45 +1,47 @@
-package Main.User;
+package com.auction.Project1.Main.User;
+
+import com.auction.Project1.Main.Items.Item;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Main.Item.Item;
+
 
 public class User {
 
 
-	private String username;
-	private String password;
-	private String userID;
-	private String name;
-	
-	private static final String CHARACTERS = "0123456789";
+    private String username;
+    private String password;
+    private String userID;
+    private String name;
+
+    private static final String CHARACTERS = "0123456789";
     private static final int ROOM_ID_LENGTH = 10;
     private static final SecureRandom RANDOM = new SecureRandom();
-	
-
-	public String getUsername() {
-		return username;
-	}
 
 
-	public String getPassword() {
-		return password;
-	}
+    public String getUsername() {
+        return username;
+    }
 
 
-	public String getUserID() {
-		return userID;
-	}
-	
-	public String getName() {
-		return name;
-	}
+    public String getPassword() {
+        return password;
+    }
 
 
-	public static String setName() {
-		Scanner scanner = new Scanner(System.in);
+    public String getUserID() {
+        return userID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+
+    public static String setName() {
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Enter name: ");
         String name = scanner.nextLine();
         while (name.isEmpty()) {
@@ -48,32 +50,32 @@ public class User {
         }
         System.out.println("Name entered successfully!");
         return name;
-	}
+    }
 
 
-	public static String setUserID(String username) {
+    public static String setUserID(String username) {
         StringBuilder userID = new StringBuilder(ROOM_ID_LENGTH);
         for (int i = 0; i < ROOM_ID_LENGTH; i++) {
             userID.append(CHARACTERS.charAt(RANDOM.nextInt(CHARACTERS.length())));
         }
         return userID.toString();
-	}
-	
-	
-	public User(String username, String password, String name) {
+    }
+
+
+    public User(String username, String password, String name) {
         this.username = username;
         this.password = password;
         this.name = name;
         this.userID = setUserID(username);
     }
-	
-	public User(String username, String password) {
+
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
         this.userID = setUserID(username);
     }
-	
-	public static User inputCredentials() {
+
+    public static User inputCredentials() {
         String username = inputUsername();
         String password = inputPassword();
         String name = setName();
@@ -104,44 +106,44 @@ public class User {
         return password;
     }
 
-	
-	public void sellItems() {
-		
-		
-		Item item_1 = new Item();
 
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Input item's name:");
-		String itemName = scanner.nextLine();
-		System.out.println("Input starting price:");
-		int startingPrice = scanner.nextInt();
-		System.out.println("Input instant sell price:");
-		int instantSellPrice = scanner.nextInt();
-		
-		scanner.nextLine();
-		System.out.println("Input description:");
-		String description = scanner.nextLine();
-		
-		String itemID = item_1.setItemID();
-		
-		boolean isAvailable = true;
-		
-		Item item = new Item(itemID , itemName, startingPrice, instantSellPrice, description, isAvailable);
+    public void sellItems() {
+
+
+        Item item_1 = new Item();
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Input item's name:");
+        String itemName = scanner.nextLine();
+        System.out.println("Input starting price:");
+        int startingPrice = scanner.nextInt();
+        System.out.println("Input instant sell price:");
+        int instantSellPrice = scanner.nextInt();
+
+        scanner.nextLine();
+        System.out.println("Input description:");
+        String description = scanner.nextLine();
+
+        String itemID = item_1.setItemID();
+
+        boolean isAvailable = true;
+
+        Item item = new Item(itemID , itemName, startingPrice, instantSellPrice, description, isAvailable);
         Item.setItems(item);
 
         System.out.println("Item added for sale:");
         System.out.println(item.getItemID() + " " + item.getItemName());
         System.out.println();
-        
+
 
         //	System.out.println(item.getItemDetail(itemID));
-		
-	}
-	
-	public void withDrawItem(String itemID) {
-		ArrayList<Item> items = Item.getItems();
-		
-		for (Item item : items) {
+
+    }
+
+    public void withDrawItem(String itemID) {
+        ArrayList<Item> items = Item.getItems();
+
+        for (Item item : items) {
             if (item.getItemID().equals(itemID) && item.isAvailable()) {
                 item.withdraw();
                 System.out.println("Item ID " + itemID + " has been withdrawn from sale.");
@@ -149,10 +151,10 @@ public class User {
             }
         }
         System.out.println("Item ID " + itemID + " not found or already withdrawn.");
-		
-	}
-	
-	public void instantBuyItem(String itemID) {
+
+    }
+
+    public void instantBuyItem(String itemID) {
         ArrayList<Item> items = Item.getItems();
         for (Item item : items) {
             if (item.getItemID().equals(itemID) && item.isAvailable()) {
@@ -164,33 +166,33 @@ public class User {
         System.out.println("Item ID " + itemID + " not found or already sold.");
     }
 
-	public void checkAvailableItems() {
-	    ArrayList<Item> items = Item.getItems();
-	    System.out.println("Available Items:");
-	    for (Item item : items) {
-	        if (item.isAvailable()) {
-	            System.out.println("Item ID: " + item.getItemID());
-	            System.out.println("Item Name: " + item.getItemName());
-	            System.out.println("Starting Price: " + item.getStartingPrice());
-	            System.out.println("Instant Sell Price: " + item.getInstantSellPrice());
-	            System.out.println("Description: " + item.getDescription());
-	            System.out.println();
-	        }
-	    }
-	    if (items.isEmpty() || items.stream().noneMatch(Item::isAvailable)) {
-	        System.out.println("No items are available for sale at the moment.");
-	    }
-	}
-	
-	@Override
+    public void checkAvailableItems() {
+        ArrayList<Item> items = Item.getItems();
+        System.out.println("Available Items:");
+        for (Item item : items) {
+            if (item.isAvailable()) {
+                System.out.println("Item ID: " + item.getItemID());
+                System.out.println("Item Name: " + item.getItemName());
+                System.out.println("Starting Price: " + item.getStartingPrice());
+                System.out.println("Instant Sell Price: " + item.getInstantSellPrice());
+                System.out.println("Description: " + item.getDescription());
+                System.out.println();
+            }
+        }
+        if (items.isEmpty() || items.stream().noneMatch(Item::isAvailable)) {
+            System.out.println("No items are available for sale at the moment.");
+        }
+    }
+
+    @Override
     public String toString() {
         return " Name: " + name + ", UserID: " + userID;
     }
-	
-	
-	
-	
-	public static void main(String[] args) {
- 
-	}
+
+
+
+
+    public static void main(String[] args) {
+
+    }
 }

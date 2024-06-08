@@ -1,29 +1,31 @@
-package Main.Bid;
+package com.auction.Project1.Main.Auction;
+
+import com.auction.Project1.Main.Room;
+import com.auction.Project1.Main.User.User;
 
 import java.util.Scanner;
 
-import Main.Room;
-import Main.User.User;
+
 
 
 
 public class BidController {
-	
 
 
-	public BidController() {
 
-	}
-	
-	public static void main(String[] args) {
+    public BidController() {
+
+    }
+
+    public static void main(String[] args) {
         Bid bid = new Bid();
-        
+
         Room room = new Room();
 
         User user = new User(null, null);
-       
 
-        
+
+
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -63,20 +65,19 @@ public class BidController {
                     room.startBidding(startBidItemID);
                     break;
                 case 7:
-                	user.checkAvailableItems();
-                	break;
+                    user.checkAvailableItems();
+                    break;
                 case 8:
                     System.out.println("Exiting...");
                     scanner.close();
                     return;
-                
-                    
+
+
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
         }
     }
 }
-	
-	
+
 

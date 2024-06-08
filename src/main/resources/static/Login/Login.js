@@ -5,13 +5,17 @@ async function submitForm() {
     console.log(username + password);
     console.log(username + password);
 
+    // Hash and salt the password using bcryptjs
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+
     try {
         const response = await fetch('/Login.app', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ username: username, password: password })
+            body: JSON.stringify({ username: username, password: hashedPassword }) // Use the hashed password
         });
 
         if (response.status === 200) {
