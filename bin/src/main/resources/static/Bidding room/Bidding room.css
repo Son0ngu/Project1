@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+}
+.sidebar {
+    width: 20%;
+    background-color: #1c1c1c;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.sidebar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.sidebar a {
+    display: block;
+    color: #ecf0f1;
+    padding: 10px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.sidebar a:hover {
+    background-color: #34495e;
+}
+.sidebar button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 5px;
+    color: #ecf0f1;
+    cursor: pointer;
+}
+.content {
+    width: 80%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #34495e;
+}
+.content .product {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.content .product img {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+.content .product a {
+    color: #3498db;
+    text-decoration: none;
+}
+.content .bidding-info {
+    display: flex;
+    justify-content: space-between;
+    background-color: #1c1c1c;
+    padding: 20px;
+    border-radius: 10px;
+}
+.content .bidding-info div {
+    margin-right: 20px;
+}
+.content .bidding-info .price-calc {
+    display: flex;
+    align-items: center;
+}
+.content .bidding-info .price-calc div {
+    margin: 0 5px;
+}
+.content .bidding-info button {
+    padding: 10px 20px;
+    background-color: #2ecc71;
+    border: none;
+    border-radius: 5px;
+    color: #ecf0f1;
+    cursor: pointer;
+}
+.content .bidding-info button:hover {
+    background-color: #27ae60;
+}
+.content .footer {
+    text-align: right;
+    margin-top: 20px;
+}

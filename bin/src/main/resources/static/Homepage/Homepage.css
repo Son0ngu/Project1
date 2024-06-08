@@ -1,0 +1,150 @@
+/* styles.css */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    background-color: #111;
+    color: #fff;
+    width: 200px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.profile {
+    text-align: center;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    margin: 20px 0;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+.logout-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: auto;
+}
+
+.logout-btn:hover {
+    background-color: #d32f2f;
+}
+
+.main-content {
+    flex: 1;
+    background-color: #e0e0e0;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+.input-data-btn {
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.input-data-btn:hover {
+    background-color: #3700b3;
+}
+
+.auction-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+.auction-table th, .auction-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.demo-img {
+    width: 50px;
+    height: 50px;
+}
+
+.join-bidding-btn {
+    background-color: #0288d1;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.join-bidding-btn:hover {
+    background-color: #01579b;
+}
+
+footer {
+    margin-top: 20px;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination button {
+    background-color: #ddd;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background-color: #ccc;
+}
+
+.pagination span {
+    margin: 0 5px;
+}
