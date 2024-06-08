@@ -1,33 +1,26 @@
-package com.auction.Project1.Main.Auction;
+package com.auction.Project1.Main.Bid;
 
-import com.auction.Project1.Main.Items.Item;
+
+import com.auction.Project1.Main.Item.Item;
+import lombok.Getter;
 
 import java.util.ArrayList;
 
 public class Bid {
 	
 	private static int bidCounter = 0;
-	private int bidID = 00000000;
+	@Getter
+    private int bidID = 0;
 	private String itemID;
 	private String userID ;
-	private float amount;
+	@Getter
+    private float amount;
 	
-	private static ArrayList<Bid> bids;
-
-	public int getBidID() {
-		return bidID;
-	}
-	
-	public static ArrayList<Bid> getBids() {
-		return bids;
-	}
+	@Getter
+    private static ArrayList<Bid> bids;
 
 
-	public float getAmount() {
-		return amount;
-	}
-	
-	public Bid() {
+    public Bid() {
         bids = new ArrayList<>();
     }
 

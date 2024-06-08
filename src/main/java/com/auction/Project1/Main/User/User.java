@@ -1,6 +1,8 @@
 package com.auction.Project1.Main.User;
 
-import com.auction.Project1.Main.Items.Item;
+
+import com.auction.Project1.Main.Item.Item;
+import lombok.Getter;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -8,6 +10,7 @@ import java.util.Scanner;
 
 
 
+@Getter
 public class User {
 
 
@@ -19,25 +22,6 @@ public class User {
     private static final String CHARACTERS = "0123456789";
     private static final int ROOM_ID_LENGTH = 10;
     private static final SecureRandom RANDOM = new SecureRandom();
-
-
-    public String getUsername() {
-        return username;
-    }
-
-
-    public String getPassword() {
-        return password;
-    }
-
-
-    public String getUserID() {
-        return userID;
-    }
-
-    public String getName() {
-        return name;
-    }
 
 
     public static String setName() {
@@ -124,7 +108,7 @@ public class User {
         System.out.println("Input description:");
         String description = scanner.nextLine();
 
-        String itemID = item_1.setItemID();
+        String itemID = Item.setItemID();
 
         boolean isAvailable = true;
 

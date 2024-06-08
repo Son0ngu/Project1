@@ -1,4 +1,4 @@
-package com.auction.Project1.Main.Auction;
+package com.auction.Project1.Main.Bid;
 
 import com.auction.Project1.Main.Room;
 import com.auction.Project1.Main.User.User;

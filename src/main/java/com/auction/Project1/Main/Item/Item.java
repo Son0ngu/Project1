@@ -1,4 +1,7 @@
-package com.auction.Project1.Main.Items;
+package com.auction.Project1.Main.Item;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -6,13 +9,23 @@ import java.util.UUID;
 
 public class Item {
 
-	private String itemID;
-	private String itemName;
-	private int startingPrice;
-	private int instantSellPrice;
-	private String description;
+	@Getter
+    private String itemID;
+	@Setter
+    @Getter
+    private String itemName;
+	@Getter
+    @Setter
+    private int startingPrice;
+	@Getter
+    @Setter
+    private int instantSellPrice;
+	@Getter
+    @Setter
+    private String description;
 	private boolean isAvailable;
-	private static ArrayList<Item> items = new ArrayList<>();
+	@Getter
+    private static ArrayList<Item> items = new ArrayList<>();
 
 	private static final String CHARACTERS = "0123456789";
 	private static final int DEFAULT_LENGTH = 8;
@@ -39,47 +52,7 @@ public class Item {
 		}
 	}
 
-	public String getItemID() {
-		return itemID;
-	}
-
-	public String getItemName() {
-		return itemName;
-	}
-
-	public void setItemName(String itemName) {
-		this.itemName = itemName;
-	}
-
-	public int getStartingPrice() {
-		return startingPrice;
-	}
-
-	public void setStartingPrice(int startingPrice) {
-		this.startingPrice = startingPrice;
-	}
-
-	public int getInstantSellPrice() {
-		return instantSellPrice;
-	}
-
-	public void setInstantSellPrice(int instantSellPrice) {
-		this.instantSellPrice = instantSellPrice;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public static ArrayList<Item> getItems() {
-		return items;
-	}
-
-	public static void setItems(Item item) {
+    public static void setItems(Item item) {
 		items.add(item);
 	}
 

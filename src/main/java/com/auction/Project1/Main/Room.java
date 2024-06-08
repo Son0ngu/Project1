@@ -1,8 +1,10 @@
 package com.auction.Project1.Main;
 
-import com.auction.Project1.Main.Auction.Bid;
-import com.auction.Project1.Main.Items.Item;
+
+import com.auction.Project1.Main.Bid.Bid;
+import com.auction.Project1.Main.Item.Item;
 import com.auction.Project1.Main.User.User;
+import lombok.Getter;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -14,10 +16,13 @@ import java.util.concurrent.TimeUnit;
 
 public class Room {
 
+    @Getter
     private String roomID;
     private static ArrayList<Room> rooms = new ArrayList<>();
     public ArrayList<User> users;
+    @Getter
     private Item items;
+    @Getter
     private User highestBidder;
 
     private static final String CHARACTERS = "0123456789";
@@ -43,10 +48,6 @@ public class Room {
         return rooms.contains(roomID);
     }
 
-    public String getRoomID() {
-        return roomID;
-    }
-
     public void joinRoom(String roomID, User userID) {
         if (!users.contains(userID)) {
             users.add(userID);
@@ -58,20 +59,6 @@ public class Room {
             Room room = new Room();
         }
     }
-
-
-
-
-    public Item getItems() {
-        return items;
-    }
-
-
-
-    public User getHighestBidder() {
-        return highestBidder;
-    }
-
 
 
     public void introduceItems() {

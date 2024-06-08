@@ -112,9 +112,9 @@ function logout() {
     window.location.href = `homepage.html`;
 }
 
-function editProfile() {
+function EditProfile() {
     const userId = localStorage.getItem('userId');
-    window.location.href = `profile.html?id=${userId}`;
+    window.location.href = `../Profile.html`;
 }
 
 async function fetchItems() {

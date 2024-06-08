@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 public class FE_Connection {
 
@@ -24,7 +25,7 @@ public class FE_Connection {
 		connection.setDoOutput(true);
 
 		try (OutputStream os = connection.getOutputStream()) {
-			byte[] input = jsonInputString.getBytes("utf-8");
+			byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);
 			os.write(input, 0, input.length);
 		}
 
@@ -54,6 +55,6 @@ public class FE_Connection {
 	// Method for user sign in
 	public String signIn(String username, String password) throws Exception {
 		String jsonInputString = String.format("{\"username\": \"%s\", \"password\": \"%s\"}", username, password);
-		return sendPost("signin", jsonInputString);
+		return sendPost("/Login.app", jsonInputString);
 	}
 }

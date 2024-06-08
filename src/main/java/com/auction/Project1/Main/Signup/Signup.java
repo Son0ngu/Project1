@@ -34,7 +34,7 @@ public class Signup {
 //        private MultipartFile avatar;
     }
 
-    @PostMapping("/Login.app")
+    @PostMapping("/Signup.app")
     public ResponseEntity<Map<String, String>> Login(@RequestBody loginInfo loginInfo) {
         String checkUserQuery = "SELECT COUNT(*) FROM master.dbo.[user] WHERE username = ? OR phone = ?";
         String registerQuery = "INSERT INTO master.dbo.[user] (username, password, phone, address) VALUES (?, ?, ?, ?)";

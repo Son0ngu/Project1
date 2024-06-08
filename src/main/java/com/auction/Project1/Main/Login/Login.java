@@ -34,10 +34,10 @@ public class Login {
         private String password;
     }
 
-    @PostMapping("/login.app")
+    @PostMapping("/app.Login")
     public ResponseEntity<Map<String, String>> login(@RequestBody loginInfo loginInfo) {
         System.out.println("Connected successfully");
-        String loginQuery = "SELECT id, password FROM master.dbo.[user] WHERE username = ?";
+        String loginQuery = "SELECT username, password FROM master.dbo.[user] WHERE username = ?";
 
         // Check the password
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();

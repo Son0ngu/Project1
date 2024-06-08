@@ -1,7 +1,10 @@
 package com.auction.Project1.Main.User;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 
+@Getter
 public class ListOfUser {
     private ArrayList<User> users;
 
@@ -13,10 +16,6 @@ public class ListOfUser {
 
     public void addUser(User user) {
         users.add(user);
-    }
-
-    public ArrayList<User> getUsers() {
-        return users;
     }
 
 
