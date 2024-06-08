@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="Login.css">
     </head>
     <body>
-    <form>
+        <form class="signin" onsubmit="event.preventDefault(); submitForm();">
         <h1>Login</h1>
         <div class="textBox">
             <input type="text" placeholder="Username*" class="username" required/>
@@ -18,7 +18,7 @@
         <div class="textBox">
             <input type="password" placeholder="Password*" class="password" required/>
         </div>
-        <input type="submit" value="Login" class="loginBtn">
+            <button type="submit" class="loginBtn">Submit</button>
         <div class="signup">
             Don't have an account?
             </br>

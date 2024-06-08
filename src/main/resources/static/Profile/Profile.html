@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
-    <link rel="stylesheet" href="/Profile.css">
+    <link rel="stylesheet" href="Profile.css">
 </head>
 <body>
 <div class="profile-header">
-    <button class="Home">Homepage</button>
+    <button class="Home"><a href="../Homepage/Homepage.html">Home</a></button>
+    <button class="logout-btn"><a href="../Login/Login.html">Logout</a></button>
     <button class="edit-profile-btn">Edit Profile</button>
 </div>
 
 <main>
-    <form class="editProfile" onsubmit="event.preventDefault(); submitForm()">
+    <form class="EditProfile" onsubmit="event.preventDefault(); submitForm()">
         <h1 class="editProfile1">Edit your profile</h1>
         <br><br><br><br>
         <label>
@@ -26,9 +27,6 @@
         <button type="submit" class="btn">Submit</button>
     </form>
 
-    <div class="createRoom">
-        <button class="btn" onclick="createRoom()">Click to create a room</button>
-    </div>
 </main>
 
 <div class="profile-section">
@@ -94,5 +92,5 @@
     <p><input type="checkbox"> New reviews</p>
 </div>
 </body>
-<script src="/Profile.js"></script>
+<script src="Profile.js"></script>
 </html>

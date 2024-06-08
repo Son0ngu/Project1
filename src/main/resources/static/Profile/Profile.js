@@ -9,7 +9,7 @@ async function submitForm() {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     try {
-        const response = await fetch('/updateProfile', {
+        const response = await fetch('/EditProfile.app', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -31,24 +31,4 @@ async function submitForm() {
     }
 }
 
-async function createRoom() {
-    try {
-        const response = await fetch('/createRoom', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
 
-        if (response.status === 200) {
-            const data = await response.json();
-            alert(data.message);
-        } else {
-            const data = await response.json();
-            alert(data.message || 'An unknown error occurred.');
-        }
-    } catch (error) {
-        console.error('Error during create room request:', error);
-        alert('An error occurred. Please try again.');
-    }
-}
