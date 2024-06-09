@@ -1,4 +1,4 @@
-package com.auction.Project1.Main;
+package Main;
 
 public class Notification {
 
