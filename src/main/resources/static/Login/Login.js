@@ -10,7 +10,7 @@ async function submitForm() {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     try {
-        const response = await fetch('/Login.app', {
+        const response = await fetch('/app.Login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

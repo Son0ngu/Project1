@@ -1,4 +1,14 @@
+<<<<<<< HEAD
 package Main;
+=======
+package com.auction.Project1.Main;
+
+
+import com.auction.Project1.Main.Bid.Bid;
+import com.auction.Project1.Main.Item.Item;
+import com.auction.Project1.Main.User.User;
+import lombok.Getter;
+>>>>>>> 8ab5988bdb40b8ced5d198e9fa156db990ef67e5
 
 import java.security.SecureRandom;
 import java.sql.*;
@@ -13,6 +23,7 @@ import Main.Item.Item;
 import Main.User.User;
 
 public class Room {
+<<<<<<< HEAD
 	
 	private String roomID;
 	private static ArrayList<Room> rooms = new ArrayList<>();
@@ -21,6 +32,19 @@ public class Room {
 	private User highestBidder;
 	
 	private static final String CHARACTERS = "0123456789";
+=======
+
+    @Getter
+    private String roomID;
+    private static ArrayList<Room> rooms = new ArrayList<>();
+    public ArrayList<User> users;
+    @Getter
+    private Item items;
+    @Getter
+    private User highestBidder;
+
+    private static final String CHARACTERS = "0123456789";
+>>>>>>> 8ab5988bdb40b8ced5d198e9fa156db990ef67e5
     private static final int ROOM_ID_LENGTH = 10;
     private static final SecureRandom RANDOM = new SecureRandom();
 	
@@ -43,6 +67,7 @@ public class Room {
         return rooms.contains(roomID);
     }
 
+<<<<<<< HEAD
 	public String getRoomID() {
 		return roomID;
 	}
@@ -65,6 +90,13 @@ public class Room {
 	}
 
 	
+=======
+    public void joinRoom(String roomID, User userID) {
+        if (!users.contains(userID)) {
+            users.add(userID);
+        }
+    }
+>>>>>>> 8ab5988bdb40b8ced5d198e9fa156db990ef67e5
 
 	public User getHighestBidder() {
 		return highestBidder;
@@ -73,11 +105,75 @@ public class Room {
 	
 
 
+<<<<<<< HEAD
 	
 
 	
 	
 	public void placeBid(String itemID, String userID, float amount) {
+=======
+    public void introduceItems() {
+        ArrayList<Item> items = Item.getItems();
+        for (Item item : items) {
+            System.out.println(item.getItemDetail(item.getItemID()));
+        }
+    }
+
+    public void startBidding(String itemID) {
+        ArrayList<Item> items = Item.getItems();
+        Item item = null;
+        for (Item it : items) {
+            if (it.getItemID().equals(itemID) && it.isAvailable()) {
+                item = it;
+                break;
+            }
+        }
+
+        if (item == null) {
+            System.out.println("Item ID " + itemID + " not found or not available for bidding.");
+            return;
+        }
+
+        System.out.println("Starting bidding for item: " + item.getItemDetail(item.getItemID()));
+
+        Scanner scanner = new Scanner(System.in);
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        boolean biddingOngoing = true;
+
+        while (biddingOngoing) {
+            System.out.println("Enter your User ID to place a bid or '0' to stop:");
+
+
+            String userID = scanner.nextLine();
+            if (userID == String.valueOf(0)) {
+                break;
+            }
+
+
+            System.out.println("Enter your bid amount:");
+            float amount = scanner.nextFloat();
+
+
+
+            placeBid(itemID, userID, amount);
+
+
+            try {
+                executor.awaitTermination(30, TimeUnit.SECONDS);
+                System.out.println("No new bids in the last 30 seconds. Bidding closed.");
+                biddingOngoing = false;
+            } catch (InterruptedException e) {
+                System.out.println("Error in waiting for new bids: " + e.getMessage());
+                Thread.currentThread().interrupt();
+            }
+        }
+
+        executor.shutdown();
+    }
+
+
+    public void placeBid(String itemID, String userID, float amount) {
+>>>>>>> 8ab5988bdb40b8ced5d198e9fa156db990ef67e5
         ArrayList<Item> items = Item.getItems();
         ArrayList<Bid> bids = Bid.getBids();
         for (Item item : items) {

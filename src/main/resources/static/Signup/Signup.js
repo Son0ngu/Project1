@@ -1,5 +1,4 @@
 async function submitForm() {
-    const Email = document.getElementsByClassName("Email")[0].value;
     const username = document.getElementsByClassName("username")[0].value;
     const password = document.getElementsByClassName("Password")[0].value;
     const phone = document.getElementsByClassName("phone")[0].value;
@@ -10,13 +9,12 @@ async function submitForm() {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     try {
-        const response = await fetch('/Signup.app', {
+        const response = await fetch('Signup.app', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                Email: Email,
                 username: username,
                 password: hashedPassword, // Use the hashed password
                 phone: phone,
@@ -34,7 +32,7 @@ async function submitForm() {
                 const userId = userIdMatch[1];
                 localStorage.setItem('userId', userId);
                 console.log(message);
-                window.location.href = `Homepage.html?id=${userId}`;
+                window.location.href = `../Homepage.html`;
             } else {
                 console.error("There's something wrong in signup function");
             }

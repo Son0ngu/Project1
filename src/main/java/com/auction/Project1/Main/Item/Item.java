@@ -1,10 +1,18 @@
+<<<<<<< HEAD
 package Main.Item;
+=======
+package com.auction.Project1.Main.Item;
+
+import lombok.Getter;
+import lombok.Setter;
+>>>>>>> 8ab5988bdb40b8ced5d198e9fa156db990ef67e5
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.UUID;
 
 public class Item {
+<<<<<<< HEAD
 	
 	private String itemID;
 	private String itemName;
@@ -23,6 +31,30 @@ public class Item {
     private static final SecureRandom random = new SecureRandom();
     
     
+=======
+
+	@Getter
+    private String itemID;
+	@Setter
+    @Getter
+    private String itemName;
+	@Getter
+    @Setter
+    private int startingPrice;
+	@Getter
+    @Setter
+    private int instantSellPrice;
+	@Getter
+    @Setter
+    private String description;
+	private boolean isAvailable;
+	@Getter
+    private static ArrayList<Item> items = new ArrayList<>();
+
+	private static final String CHARACTERS = "0123456789";
+	private static final int DEFAULT_LENGTH = 8;
+	private static final SecureRandom random = new SecureRandom();
+>>>>>>> 8ab5988bdb40b8ced5d198e9fa156db990ef67e5
 
 
     public static String createItemID(int length) {
@@ -37,6 +69,7 @@ public class Item {
     	return createItemID(DEFAULT_LENGTH);
     }
 
+<<<<<<< HEAD
     public static void addItemIdToList(Item itemID) {
     	if (!items.contains(itemID)) {
     		items.add(itemID);
@@ -84,6 +117,28 @@ public class Item {
 	}
 
 	public static void setItems(Item item) {
+=======
+
+	public static String createItemID(int length) {
+		StringBuilder itemId = new StringBuilder(length);
+		for (int i = 0; i < length; i++) {
+			itemId.append(CHARACTERS.charAt(random.nextInt(CHARACTERS.length())));
+		}
+		return itemId.toString();
+	}
+
+	public static String setItemID() {
+		return createItemID(DEFAULT_LENGTH);
+	}
+
+	public static void addItemIdToList(Item itemID) {
+		if (!items.contains(itemID)) {
+			items.add(itemID);
+		}
+	}
+
+    public static void setItems(Item item) {
+>>>>>>> 8ab5988bdb40b8ced5d198e9fa156db990ef67e5
 		items.add(item);
 	}
 
