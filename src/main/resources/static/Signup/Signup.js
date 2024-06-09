@@ -15,7 +15,6 @@ async function submitForm() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                Email: Email,
                 username: username,
                 password: hashedPassword, // Use the hashed password
                 phone: phone,
