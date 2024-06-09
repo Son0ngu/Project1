@@ -1,12 +1,4 @@
-<<<<<<< HEAD
 package Main.Bid;
-=======
-package com.auction.Project1.Main.Bid;
-
-
-import com.auction.Project1.Main.Item.Item;
-import lombok.Getter;
->>>>>>> 8ab5988bdb40b8ced5d198e9fa156db990ef67e5
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -18,26 +10,28 @@ import Main.Item.Item;
 public class Bid {
 	
 	private static int bidCounter = 0;
-<<<<<<< HEAD
 	private int bidID;
 	private String itemID;
 	private String userID ;
 	private String roomID;
 	private float amount;
-=======
-	@Getter
-    private int bidID = 0;
-	private String itemID;
-	private String userID ;
-	@Getter
-    private float amount;
->>>>>>> 8ab5988bdb40b8ced5d198e9fa156db990ef67e5
 	
-	@Getter
-    private static ArrayList<Bid> bids;
+	private static ArrayList<Bid> bids;
+
+	public int getBidID() {
+		return bidID;
+	}
+	
+	public static ArrayList<Bid> getBids() {
+		return bids;
+	}
 
 
-    public Bid() {
+	public float getAmount() {
+		return amount;
+	}
+	
+	public Bid() {
         bids = new ArrayList<>();
     }
 

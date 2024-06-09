@@ -1,4 +1,4 @@
-package com.auction.Project1.Main;
+package Main;
 
 import java.sql.*;
 import java.util.Scanner;

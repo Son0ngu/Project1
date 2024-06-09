@@ -1,12 +1,4 @@
-<<<<<<< HEAD
 package Main.User;
-=======
-package com.auction.Project1.Main.User;
-
-
-import com.auction.Project1.Main.Item.Item;
-import lombok.Getter;
->>>>>>> 8ab5988bdb40b8ced5d198e9fa156db990ef67e5
 
 import java.security.SecureRandom;
 import java.sql.*;
@@ -15,7 +7,6 @@ import java.util.Scanner;
 
 import Main.Item.Item;
 
-@Getter
 public class User {
 
 	private ArrayList<Item> items;
@@ -36,7 +27,6 @@ public class User {
 	}
 
 
-<<<<<<< HEAD
 	public String getPassword() {
 		return password;
 	}
@@ -57,10 +47,6 @@ public class User {
 
 	public static String setName() {
 		Scanner scanner = new Scanner(System.in);
-=======
-    public static String setName() {
-        Scanner scanner = new Scanner(System.in);
->>>>>>> 8ab5988bdb40b8ced5d198e9fa156db990ef67e5
         System.out.print("Enter name: ");
         String name = scanner.nextLine();
         while (name.isEmpty()) {
@@ -125,7 +111,6 @@ public class User {
         return password;
     }
 
-<<<<<<< HEAD
 	
 	
 	
@@ -133,46 +118,6 @@ public class User {
 		ArrayList<Item> items = Item.getItems();
 		
 		for (Item item : items) {
-=======
-
-    public void sellItems() {
-
-
-        Item item_1 = new Item();
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Input item's name:");
-        String itemName = scanner.nextLine();
-        System.out.println("Input starting price:");
-        int startingPrice = scanner.nextInt();
-        System.out.println("Input instant sell price:");
-        int instantSellPrice = scanner.nextInt();
-
-        scanner.nextLine();
-        System.out.println("Input description:");
-        String description = scanner.nextLine();
-
-        String itemID = Item.setItemID();
-
-        boolean isAvailable = true;
-
-        Item item = new Item(itemID , itemName, startingPrice, instantSellPrice, description, isAvailable);
-        Item.setItems(item);
-
-        System.out.println("Item added for sale:");
-        System.out.println(item.getItemID() + " " + item.getItemName());
-        System.out.println();
-
-
-        //	System.out.println(item.getItemDetail(itemID));
-
-    }
-
-    public void withDrawItem(String itemID) {
-        ArrayList<Item> items = Item.getItems();
-
-        for (Item item : items) {
->>>>>>> 8ab5988bdb40b8ced5d198e9fa156db990ef67e5
             if (item.getItemID().equals(itemID) && item.isAvailable()) {
                 item.withdraw();
                 System.out.println("Item ID " + itemID + " has been withdrawn from sale.");
