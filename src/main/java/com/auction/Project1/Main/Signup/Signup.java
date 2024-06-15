@@ -14,7 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.sql.DataSource;
 import java.sql.*;
-        import java.util.HashMap;
+import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -34,7 +34,7 @@ public class Signup {
 //        private MultipartFile avatar;
     }
 
-    @PostMapping("/Signup.app")
+    @PostMapping("/Signup")
     public ResponseEntity<Map<String, String>> Login(@RequestBody loginInfo loginInfo) {
         String checkUserQuery = "SELECT COUNT(*) FROM master.dbo.[Users] WHERE username = ? OR phone = ?";
         String registerQuery = "INSERT INTO master.dbo.[Users] (username, password, phone, address) VALUES (?, ?, ?, ?)";
@@ -46,7 +46,7 @@ public class Signup {
         Map<String, String> response;
         try (Connection conn = dataSource.getConnection()) {
             response = new HashMap<>();
-            // Check for duplicate username or phone
+
             try (PreparedStatement checkStmt = conn.prepareStatement(checkUserQuery)) {
                 checkStmt.setString(1, loginInfo.username);
                 checkStmt.setString(2, loginInfo.phone);

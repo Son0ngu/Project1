@@ -15,9 +15,13 @@ public class DatabaseConfig {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        dataSource.setUrl("jdbc:sqlserver://127.0.0.1:1433;DatabaseName=master;encrypt=true;trustServerCertificate=true;");
+        dataSource.setUrl("jdbc:sqlserver://NGUYENNGUYEN\\sqlexpress:1433;databaseName=Project1;encrypt=true;trustServerCertificate=true;");
         dataSource.setUsername("sa");
-        dataSource.setPassword("Pass123@");
+        dataSource.setPassword("Nguyen2004Fg");
+        
+        
+        
+        //(●'◡'●)
         return dataSource;
     }
 

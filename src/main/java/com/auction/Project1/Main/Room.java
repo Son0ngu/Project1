@@ -1,4 +1,4 @@
-package Main;
+package com.auction.Project1.Main;
 
 import java.security.SecureRandom;
 import java.sql.*;
@@ -8,9 +8,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import Main.Bid.Bid;
-import Main.Item.Item;
-import Main.User.User;
+import com.auction.Project1.Main.Bid.*;
+import com.auction.Project1.Main.Item.*;
+import com.auction.Project1.Main.User.*;
 
 public class Room {
 	

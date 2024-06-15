@@ -9,7 +9,7 @@ async function submitForm() {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     try {
-        const response = await fetch('Signup.app', {
+        const response = await fetch('/Signup.app', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -32,7 +32,7 @@ async function submitForm() {
                 const userId = userIdMatch[1];
                 localStorage.setItem('userId', userId);
                 console.log(message);
-                window.location.href = `../Homepage.html`;
+                window.location.href = `../Homepage.html?id=${userId}`;
             } else {
                 console.error("There's something wrong in signup function");
             }

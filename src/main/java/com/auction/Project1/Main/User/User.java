@@ -1,11 +1,11 @@
-package Main.User;
+package com.auction.Project1.Main.User;
 
 import java.security.SecureRandom;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Main.Item.Item;
+import com.auction.Project1.Main.Item.*;
 
 public class User {
 

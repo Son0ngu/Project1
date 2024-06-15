@@ -1,12 +1,12 @@
-package Main;
+package com.auction.Project1.Main;
 
 import java.sql.*;
 import java.util.Scanner;
 
-import Main.Room;
-import Main.Bid.Bid;
-import Main.Item.Item;
-import Main.User.User;
+import com.auction.Project1.Main.Bid.*;
+import com.auction.Project1.Main.Room.*;
+import com.auction.Project1.Main.Item.*;
+import com.auction.Project1.Main.User.*;
 
 public class DB_Connection {
 	
@@ -175,24 +175,23 @@ public class DB_Connection {
                     case 8:
                     	
                     	System.out.println("Enter user detail:");
-                        
-                        System.out.println("username:");
-                        String newUsername = scanner.nextLine();
-                        System.out.println("password:");
-                        String newPassword = scanner.nextLine();
-                        System.out.println("name:");
-                        String name = scanner.nextLine();
-                        
-                        
+                      
+                      System.out.println("username:");
+                      String newUsername = scanner.nextLine();
+                      System.out.println("password:");
+                      String newPassword = scanner.nextLine();
+                      System.out.println("name:");
+                      String name = scanner.nextLine();
+                          
                     	
-                    	String insertSqlUser = "INSERT INTO Users (username, password, userID, name) VALUES (?, ?, ? , ?)";
+                    	String insertSqlUser = "INSERT INTO Users (userID ,username, password, phone, address, name) VALUES (?, ?, ?, ?, ?, ?)";
                     	
                     	statement = connection.prepareStatement(insertSqlUser);
             			
-            			statement.setString(1, newUsername);
-            			statement.setString(2, newPassword);
-            			statement.setString(3, user.getUserID());
-            			statement.setString(4, name);
+            			statement.setString(1, user.getUserID());
+            			statement.setString(2, newUsername);
+            			statement.setString(3, newPassword);
+            			statement.setString(6, name);
             			
             			int rows_8 = statement.executeUpdate();
             			

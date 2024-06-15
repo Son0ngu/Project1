@@ -1,9 +1,9 @@
-package Main.Bid;
+package com.auction.Project1.Main.Bid;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-import Main.Item.Item;
+import com.auction.Project1.Main.Item.*;
 
 
 

@@ -1,4 +1,4 @@
-package Main;
+package com.auction.Project1.Main;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
