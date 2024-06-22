@@ -1,170 +1,104 @@
 package com.auction.Project1.Main.Item;
 
-import java.security.SecureRandom;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.sql.DataSource;
+import java.sql.*;
 import java.util.ArrayList;
-import java.util.UUID;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+@RestController
 public class Item {
-	
-	private String itemID;
-	private String itemName;
-	private int startingPrice;
-	private int instantSellPrice;
-	private String description;
-	private boolean isAvailable;
-	
-	private String sellerUserID;
-	private String buyerUserID;
-	
-	private static ArrayList<Item> items = new ArrayList<>();
-	
- 	private static final String CHARACTERS = "0123456789";
-    private static final int DEFAULT_LENGTH = 8;
-    private static final SecureRandom random = new SecureRandom();
-    
-    
+    @Autowired
+    private DataSource dataSource;
 
+    @Getter
+    @Setter
+    @Component
+    public static class ItemInfo {
 
-    public static String createItemID(int length) {
-        StringBuilder itemId = new StringBuilder(length);
-        for (int i = 0; i < length; i++) {
-            itemId.append(CHARACTERS.charAt(random.nextInt(CHARACTERS.length())));
+        private String itemID;
+        private String itemName;
+        private String startingPrice;
+        private String instantSellPrice;
+        private boolean isAvailable;
+        private String seller_user_ID;
+        private String buyer_user_ID;
+        private String description;
+
+    }
+
+    @GetMapping("/items")
+    public ResponseEntity<List<ItemInfo>> getItems() {
+        List<ItemInfo> items = new ArrayList<>();
+        String query = "SELECT itemID, itemName, startingPrice, instantSellPrice, isAvailable, seller_user_ID, buyer_user_ID, description,  FROM items";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement ps = conn.prepareStatement(query);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                ItemInfo item = new ItemInfo();
+                item.setItemID(rs.getString("itemID"));
+                item.setItemName(rs.getString("itemName"));
+                item.setStartingPrice(rs.getString("startingPrice"));
+                item.setInstantSellPrice(rs.getString("instantSellPrice"));
+                item.setAvailable(rs.getBoolean("isAvailable"));
+                item.setSeller_user_ID(rs.getString("seller_user_ID"));
+                item.setBuyer_user_ID(rs.getString("buyer_user_ID"));
+                item.setDescription(rs.getString("description"));
+
+                items.add(item);
+            }
+            return ResponseEntity.status(HttpStatus.OK).body(items);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-        return itemId.toString();
-    }
-    
-    public static String setItemID() {
-    	return createItemID(DEFAULT_LENGTH);
     }
 
-    public static void addItemIdToList(Item itemID) {
-    	if (!items.contains(itemID)) {
-    		items.add(itemID);
-    	}
-    }	
-	
-    public String getItemID() {
-    	return itemID;
+    @PostMapping("/createItem")
+    public ResponseEntity<Map<String, String>> createItem(@RequestBody ItemInfo itemInfo) {
+        Map<String, String> response = new HashMap<>();
+        String insertQuery = "INSERT INTO master.dbo.[items] (itemName, startingPrice, instantSellPrice, isAvailable, seller_user_ID, description) VALUES (?, ?, ?, ?, ?, ?)";
+
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement ps = conn.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS)) {
+
+            ps.setString(1, itemInfo.getItemName());
+            ps.setString(2, itemInfo.getStartingPrice());
+            ps.setString(3, itemInfo.getInstantSellPrice());
+            ps.setBoolean(4, true);
+            ps.setString(5,itemInfo.getSeller_user_ID());
+            ps.setString(6, itemInfo.getDescription());
+     
+
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected > 0) {
+                try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        itemInfo.setItemID(generatedKeys.getString(1)); // Retrieve the auto-generated ID
+                    }
+                }
+                response.put("message", "Item created successfully");
+                response.put("itemId", itemInfo.getItemID()); // Include the new item ID in the response
+                return ResponseEntity.status(HttpStatus.CREATED).body(response);
+            } else {
+                response.put("message", "Failed to create item");
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+            }
+        } catch (SQLException e) {
+            response.put("message", "SQL error: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        }
     }
-    
-    public String getItemName() {
-    	return itemName;
-    }
-
-	public void setItemName(String itemName) {
-		this.itemName = itemName;
-	}
-	
-	public int getStartingPrice() {
-		return startingPrice;
-	}
-
-	public void setStartingPrice(int startingPrice) {
-		this.startingPrice = startingPrice;
-	}
-	
-	public int getInstantSellPrice() {
-		return instantSellPrice;
-	}
-
-	public void setInstantSellPrice(int instantSellPrice) {
-		this.instantSellPrice = instantSellPrice;
-	}
-	
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
-	public static ArrayList<Item> getItems() {
-		return items;
-	}
-
-	public static void setItems(Item item) {
-		items.add(item);
-	}
-
-	
-	public void withdraw() {
-        this.isAvailable = false;
-    }
-	
-	
-
-
-	public String getSellerUserID() {
-		return sellerUserID;
-	}
-
-	public String getBuyerUserID() {
-		return buyerUserID;
-	}
-
-	@Override
-    public String toString() {
-        return "Item{" +
-                "itemID='" + itemID + '\'' +
-                ", itemName='" + itemName + '\'' +
-                ", startingPrice=" + startingPrice +
-                ", instantSellPrice=" + instantSellPrice +
-                ", description='" + description + '\'' +
-                ", available=" + isAvailable +
-                '}';
-    }
-	
-	
-
-	
-	public Item(String itemID, String itemName, int startingPrice, int instantSellingPrice, String description, boolean isAvailable) {
-		this.itemID = itemID;
-		this.itemName = itemName;
-		this.startingPrice = startingPrice;
-		this.instantSellPrice = instantSellingPrice;
-		this.description = description;
-		this.isAvailable = isAvailable;
-	}
-	
-	public Item() {
-		
-	}
-	
-	public Item(String itemID) {
-		this.itemID = itemID;
-	}
-	
-	
-	public String getItemDetail(String itemID) {
-
-	    ArrayList<Item> items = Item.getItems();
-	    for (Item it : items) {
-	        if (it.getItemID().equals(itemID)) {
-	
-	            return "Item ID: " + it.getItemID() + "\n" +
-	                   "Item Name: " + it.getItemName() + "\n" +
-	                   "Starting Price: " + it.getStartingPrice() + "\n" +
-	                   "Instant Sell Price: " + it.getInstantSellPrice() + "\n" +
-	                   "Description: " + it.getDescription() + "\n" +
-	                   "Availability: " + (it.isAvailable() ? "true" : "false");
-	        }
-	    }
-	   
-	    return null;
-	}
-	
-
-	public boolean isAvailable() {
-        return isAvailable;
-    }
-
-	public void markAsSold() {
-		this.isAvailable = false;
-	}
-
-	
-	
 }
-	
-

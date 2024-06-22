@@ -3,11 +3,11 @@ package com.auction.Project1.Main.Bid;
 import java.sql.*;
 import java.util.ArrayList;
 
-import com.auction.Project1.Main.Item.*;
 
 
 
-public class Bid {
+
+public class Bid_test {
 	
 	private static int bidCounter = 0;
 	private int bidID;
@@ -16,13 +16,13 @@ public class Bid {
 	private String roomID;
 	private float amount;
 	
-	private static ArrayList<Bid> bids;
+	private static ArrayList<Bid_test> bids;
 
 	public int getBidID() {
 		return bidID;
 	}
 	
-	public static ArrayList<Bid> getBids() {
+	public static ArrayList<Bid_test> getBids() {
 		return bids;
 	}
 
@@ -31,12 +31,12 @@ public class Bid {
 		return amount;
 	}
 	
-	public Bid() {
+	public Bid_test() {
         bids = new ArrayList<>();
     }
 
 	
-	public Bid(String itemID, String userID, float amount) {
+	public Bid_test(String itemID, String userID, float amount) {
         this.bidID =  ++bidCounter;
         this.itemID = itemID;
         this.userID = userID;

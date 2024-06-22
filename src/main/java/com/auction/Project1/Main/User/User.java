@@ -9,7 +9,7 @@ import com.auction.Project1.Main.Item.*;
 
 public class User {
 
-	private ArrayList<Item> items;
+	private ArrayList<Item_test> items;
 
 	private String username;
 	private String password;
@@ -115,9 +115,9 @@ public class User {
 	
 	
 	public void withDrawItem(String itemID) {
-		ArrayList<Item> items = Item.getItems();
+		ArrayList<Item_test> items = Item_test.getItems();
 		
-		for (Item item : items) {
+		for (Item_test item : items) {
             if (item.getItemID().equals(itemID) && item.isAvailable()) {
                 item.withdraw();
                 System.out.println("Item ID " + itemID + " has been withdrawn from sale.");
@@ -132,9 +132,9 @@ public class User {
 
 
 	public void checkAvailableItems() {
-	    ArrayList<Item> items = Item.getItems();
+	    ArrayList<Item_test> items = Item_test.getItems();
 	    System.out.println("Available Items:");
-	    for (Item item : items) {
+	    for (Item_test item : items) {
 	        if (item.isAvailable()) {
 	            System.out.println("Item ID: " + item.getItemID());
 	            System.out.println("Item Name: " + item.getItemName());
@@ -144,7 +144,7 @@ public class User {
 	            System.out.println();
 	        }
 	    }
-	    if (items.isEmpty() || items.stream().noneMatch(Item::isAvailable)) {
+	    if (items.isEmpty() || items.stream().noneMatch(Item_test::isAvailable)) {
 	        System.out.println("No items are available for sale at the moment.");
 	    }
 	}

@@ -1,6 +1,6 @@
 package com.auction.Project1.Main;
 
-public class Main {
+public class Main_test {
     public static void main(String[] args) {
         try {
             FE_Connection connection = new FE_Connection("http://example.com/api/");

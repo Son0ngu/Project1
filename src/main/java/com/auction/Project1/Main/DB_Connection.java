@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.Scanner;
 
 import com.auction.Project1.Main.Bid.*;
-import com.auction.Project1.Main.Room.*;
+import com.auction.Project1.Main.Room_test.*;
 import com.auction.Project1.Main.Item.*;
 import com.auction.Project1.Main.User.*;
 
@@ -14,13 +14,13 @@ public class DB_Connection {
 	
     public static void main(String[] args) {
     	
-    	Bid bid = new Bid();
+    	Bid_test bid = new Bid_test();
         
-        Room room = new Room();
+        Room_test room = new Room_test();
 
         User user = new User(null, null);
         
-        Item item = new Item();
+        Item_test item = new Item_test();
     	
     	
         String url = "jdbc:sqlserver://NGUYENNGUYEN\\sqlexpress:1433;databaseName=Project1;encrypt=true;trustServerCertificate=true;";
@@ -51,14 +51,14 @@ public class DB_Connection {
                         System.out.println("Item Name:");
                         String itemName = scanner.nextLine();
                         System.out.println("Start Price:");
-                        int startPrice = scanner.nextInt();
+                        int startingPrice = scanner.nextInt();
                         System.out.println("Instant Sell Price:");
                         int instantSellPrice = scanner.nextInt();
                         scanner.nextLine();
                         System.out.println("Description:");
                         String description = scanner.nextLine();
                         
-                        boolean available = true;
+                        boolean isAvailable = true;
                     
                         System.out.println("Seller_user_ID:");
                         String seller_user_ID = scanner.nextLine();
@@ -68,14 +68,14 @@ public class DB_Connection {
                         
                         String sellItemID = item.setItemID();
 
-                        String insertSqlItem = "INSERT INTO Items (itemID, itemName, startPrice, instantSellPrice, description, Available, roomID, seller_user_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                        String insertSqlItem = "INSERT INTO Items (itemID, itemName, startingPrice, instantSellPrice, description, isAvailable, roomID, seller_user_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
                         statement = connection.prepareStatement(insertSqlItem);
                         statement.setString(1, sellItemID);
                         statement.setString(2, itemName);
-                        statement.setInt(3, startPrice);
+                        statement.setInt(3, startingPrice);
                         statement.setInt(4, instantSellPrice);
                         statement.setString(5, description);
-                        statement.setBoolean(6, available);
+                        statement.setBoolean(6, isAvailable);
                         statement.setString(7, roomID);
                         statement.setString(8, seller_user_ID);
 
@@ -128,7 +128,7 @@ public class DB_Connection {
                          float amount = scanner.nextFloat();
                          scanner.nextLine(); 
                          
-                         Bid.placeBid(connection, roomID_4, userID, itemID, amount);
+                         Bid_test.placeBid(connection, roomID_4, userID, itemID, amount);
                          
                          break;
                     	
@@ -232,8 +232,8 @@ public class DB_Connection {
                         break;
                     case 11:
                     	
-                        String newRoomID = Room.setRoomID();
-                        Room.createNewRoom(newRoomID, connection);
+                        String newRoomID = Room_test.setRoomID();
+                        Room_test.createNewRoom(newRoomID, connection);
                         break;
                     	
                     case 12:

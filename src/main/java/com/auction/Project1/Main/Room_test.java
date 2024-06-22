@@ -12,12 +12,12 @@ import com.auction.Project1.Main.Bid.*;
 import com.auction.Project1.Main.Item.*;
 import com.auction.Project1.Main.User.*;
 
-public class Room {
+public class Room_test {
 	
 	private String roomID;
-	private static ArrayList<Room> rooms = new ArrayList<>();
+	private static ArrayList<Room_test> rooms = new ArrayList<>();
 	public ArrayList<User> users;
-	private Item items;
+	private Item_test items;
 	private User highestBidder;
 	
 	private static final String CHARACTERS = "0123456789";
@@ -50,8 +50,8 @@ public class Room {
 	
 	
 	public void createRoom(){
-		if (!Room.roomIDExists(Room.setRoomID())) {
-			Room room = new Room();
+		if (!Room_test.roomIDExists(Room_test.setRoomID())) {
+			Room_test room = new Room_test();
 		}
 	}
 	
@@ -60,7 +60,7 @@ public class Room {
 	
 	
 	
-	public Item getItems() {
+	public Item_test getItems() {
 		return items;
 	}
 
@@ -78,11 +78,11 @@ public class Room {
 	
 	
 	public void placeBid(String itemID, String userID, float amount) {
-        ArrayList<Item> items = Item.getItems();
-        ArrayList<Bid> bids = Bid.getBids();
-        for (Item item : items) {
+        ArrayList<Item_test> items = Item_test.getItems();
+        ArrayList<Bid_test> bids = Bid_test.getBids();
+        for (Item_test item : items) {
             if (item.getItemID().equals(itemID) && item.isAvailable()) {
-                Bid bid = new Bid(itemID, userID, amount);
+                Bid_test bid = new Bid_test(itemID, userID, amount);
                 bids.add(bid);
                 System.out.println("Bid placed: " + bid);
                 return;
@@ -108,7 +108,7 @@ public class Room {
         }
     }
 	
-	public Room() {
+	public Room_test() {
 
 	}
 }

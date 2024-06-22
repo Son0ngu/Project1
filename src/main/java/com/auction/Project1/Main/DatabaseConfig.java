@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 
+
 @PropertySource("classpath:application.properties")
 @Configuration
 public class DatabaseConfig {
@@ -15,12 +16,11 @@ public class DatabaseConfig {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        dataSource.setUrl("jdbc:sqlserver://NGUYENNGUYEN\\sqlexpress:1433;databaseName=Project1;encrypt=true;trustServerCertificate=true;");
+        dataSource.setUrl("jdbc:sqlserver://NGUYENNGUYEN\\sqlexpress:1433;databaseName=Project1;integratedSecurity=true;encrypt=true;trustServerCertificate=false;trustStore=C:\\Program Files\\Java\\jdk-14.0.2\\lib\\security\\cacert;trustStorePassword=changeit");
         dataSource.setUsername("sa");
         dataSource.setPassword("Nguyen2004Fg");
         
-        
-        
+
         //(●'◡'●)
         return dataSource;
     }
