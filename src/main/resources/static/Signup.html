@@ -4,13 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <html>
-    <head>
-        <title >Sign up</title>
-        <link rel="stylesheet" href="Signup/Signup.css">
-    </head>
-    <body>
-    <form>
+    <title>Sign up</title>
+    <link rel="stylesheet" href="/Signup/Signup.css">
+</head>
+<body>
+    <form id="signupForm">
         <h1>Sign up</h1>
 
         <div class="textBox">
@@ -25,15 +23,18 @@
         <div class="textBox">
             <input name="address" type="text" placeholder="Address*" class="address" required/>
         </div>
-        <button type="submit" class="SignupBtn" onclick="submitForm()">Get Started</button>
+
+        <button type="submit" class="SignupBtn">Get Started</button>
+
         <div class="signup">
             Have an account?
-            </br>
+            <br>
             <a href="Login.html">Login</a>
         </div>
     </form>
-    </body>
+    
+    <script src="/Signup/Signup.js" defer></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
-    <script src="Signup/Signup.js"></script>
-    </html>
+</body>
+</html>

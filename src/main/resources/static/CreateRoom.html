@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Room</title>
+    <link rel="stylesheet" href="/CreateRoom/CreateRoom.css">
+</head>
+
+<body>
+    <form class="createRoom" onsubmit="event.preventDefault(); createRoom();">
+
+    <div class="join-room-container">
+        <h1>Create Room</h1>
+        <form id="joinRoomForm">
+            <label for="roomId">Room ID:</label>
+            <input type="text" id="roomId" name="roomId" placeholder="Enter room ID" required>
+
+            <label for="roomName">Room name:</label>
+            <input type="text" id="roomName" name="roomName"placeholder="Enter room name" required>
+
+            <button type="submit" class="createRoomBtn"> Create Room</button>
+        </form>
+    </div>
+
+</body>
+<script src="/CreateRoom/CreateRoom.js"></script>
+
+</html>

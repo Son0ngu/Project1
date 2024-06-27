@@ -1,5 +1,7 @@
 'use strict';
 
+/*
+
 // modal variables
 const modal = document.querySelector('[data-modal]');
 const modalCloseBtn = document.querySelector('[data-modal-close]');
@@ -87,6 +89,16 @@ for (let i = 0; i < accordionBtn.length; i++) {
 
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".join-bidding-btn");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", function() {
+            const id = button.getAttribute("data-id");
+            window.location.href = `BiddingRoom.html?id=${id}`;
+        });
+    });
+});
 
 
 
@@ -163,3 +175,5 @@ async function fetchItems() {
 }
 
 document.addEventListener('DOMContentLoaded', fetchItems);
+*/
+
