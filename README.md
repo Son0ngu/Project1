@@ -18,43 +18,57 @@ This project aims to build an online auction platform where users can buy and se
 
 ## Code Structure:
 ```
-├───src
-│   ├───main
-│   │   ├───java
-│   │   │   └───com
-│   │   │       └───example
-│   │   │           └───auctionwebsite
-│   │   │               ├───controller
-│   │   │               └───model
-│   │   └───resources
-│   │       └───static
-│   │           └───assets
-│   │               ├───css
-│   │               ├───images
-│   │               │   ├───icons
-│   │               │   └───logo
-│   │               └───js
-│   └───test
-│       └───java
-│           └───com
-│               └───example
-│                   └───auctionwebsite
-└───target
-    ├───classes
-    │   ├───com
-    │   │   └───example
-    │   │       └───auctionwebsite
-    │   │           ├───controller
-    │   │           └───model
-    │   └───static
-    │       └───assets
-    │           ├───css
-    │           ├───images
-    │           │   ├───icons
-    │           │   └───logo
-    │           └───js
-    └───generated-sources
-        └───annotations
+src
+   |_ main
+       |_ java
+            |_ com/example/auctionwebsite
+                |_ controller
+                    |_ AuctionController.java
+                    |_ BiddingController.java
+                    |_ EditProfileController.java
+                    |_ ItemController.java
+                    |_ LoginController.java
+                    |_ ProfileController.java
+                    |_ RegisterController.java
+                    |_ RoomController.java
+                |_ model
+                    |_ AuctionRoom.java
+                    |_ EditProfileInfo.java
+                    |_ ItemInfo.java
+                    |_ LoginInfo.java
+                    |_ RoomInfo.java
+                    |_ UserInfo.java
+                |_ DatabaseConfig.java
+                |_ AuctiononlineApplication.java
+            |_ reposistory
+            
+       |_ resources
+           |_ static
+               |_ Asset
+               |_ Bidding room
+                    |_ Bidding room.css
+                    |_ Bidding room.js
+               |_ Bidding
+                    |_ Bidding.css
+                    |_ Bidding.js
+               |_ Homepage
+                    |_ Homepage.css
+                    |_ Homepage.js
+               |_ Login
+                    |_ Login.css
+                    |_ Login.js
+               |_ Profile
+                    |_ Profile.css
+                    |_ Profile.js
+               |_ Signup
+                    |_ Signup.css
+                    |_ Signup.js
+               |_ Bidding room.html
+               |_ Bidding.html
+               |_ Homepage.html
+               |_ Login.html
+               |_ Profile.html
+               |_ Signup.html
 ```
 
 ### How to run ?
@@ -65,11 +79,9 @@ This project aims to build an online auction platform where users can buy and se
 - Open localhost `http://localhost/-port-` to open the website
 
 ### Authors:
-- Huy Trần
-- Quân Ngô
+- Nguyen Khoi Nguyen
+- Bui Xuan Son
 
 ### License:
 This project is licensed under the MIT License - see the LICENSE.md file for details.
 
-### Screenshot:
-![screenshoot](./Screenshot%202024-06-08%20014425.png)
