@@ -24,7 +24,7 @@ public class EditProfileController {
     @Autowired
     private DataSource dataSource;
 
-    @PostMapping("/editprofile.app")
+    @PostMapping("/EditProfile.app")
     public ResponseEntity<Map<String, String>> editProfile(@RequestBody EditProfileInfo editProfileInfo) {
         System.out.println("Connected successfully");
 
@@ -37,10 +37,7 @@ public class EditProfileController {
         StringBuilder updateQuery = new StringBuilder("UPDATE master.dbo.[user] SET ");
         boolean firstField = true;
 
-        if (editProfileInfo.getUsername() != null && !editProfileInfo.getUsername().isEmpty()) {
-            updateQuery.append("username = ?");
-            firstField = false;
-        }
+
         if (editProfileInfo.getPassword() != null && !editProfileInfo.getPassword().isEmpty()) {
             if (!firstField) updateQuery.append(", ");
             updateQuery.append("password = ?");
@@ -60,9 +57,7 @@ public class EditProfileController {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement(updateQuery.toString())) {
             int paramIndex = 1;
-            if (editProfileInfo.getUsername() != null && !editProfileInfo.getUsername().isEmpty()) {
-                ps.setString(paramIndex++, editProfileInfo.getUsername());
-            }
+
             if (editProfileInfo.getPassword() != null && !editProfileInfo.getPassword().isEmpty()) {
                 String hashedPassword = encodePassword(editProfileInfo.getPassword()); // Hash the password
                 ps.setString(paramIndex++, hashedPassword);

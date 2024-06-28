@@ -25,7 +25,7 @@ public class ItemController {
     @GetMapping("/items")
     public ResponseEntity<List<ItemInfo>> getItems() {
         List<ItemInfo> items = new ArrayList<>();
-        String query = "SELECT id, name, price, description, openTime, endTime, imageLink FROM items";
+        String query = "SELECT id, name, price, instantSellPrice, description  FROM items";
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement(query);
              ResultSet rs = ps.executeQuery()) {
@@ -35,10 +35,9 @@ public class ItemController {
                 item.setId(rs.getString("id"));
                 item.setName(rs.getString("name"));
                 item.setPrice(rs.getString("price"));
+                item.setInstantSellPrice(rs.getString("instantSellPrice"));
                 item.setDescription(rs.getString("description"));
-                item.setOpenTime(rs.getString("openTime"));
-                item.setEndTime(rs.getString("endTime"));
-                item.setImageLink(rs.getString("imageLink"));
+
                 items.add(item);
             }
             return ResponseEntity.status(HttpStatus.OK).body(items);
@@ -50,17 +49,16 @@ public class ItemController {
     @PostMapping("/createItem")
     public ResponseEntity<Map<String, String>> createItem(@RequestBody ItemInfo itemInfo) {
         Map<String, String> response = new HashMap<>();
-        String insertQuery = "INSERT INTO master.dbo.[items] (name, price, bid_price, description, openTime, endTime, imageLink, roomId) VALUES (?, ?, ?, ?, DATEADD(DAY, 1, GETDATE()), DATEADD(DAY, 1, DATEADD(DAY, 1, GETDATE())), ?, ?)";
+        String insertQuery = "INSERT INTO master.dbo.[items] (name, price, instantSellPrice, description, isAvailable) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, itemInfo.getName());
             ps.setString(2, itemInfo.getPrice());
-            ps.setString(3, itemInfo.getBid_price());
+            ps.setString(3, itemInfo.getInstantSellPrice());
             ps.setString(4, itemInfo.getDescription());
-            // openTime và endTime được thiết lập tự động trong câu truy vấn
-            ps.setString(5, itemInfo.getImageLink());
-            ps.setString(6, itemInfo.getRoomId());
+            ps.setBoolean(5, true);
+    
 
             int rowsAffected = ps.executeUpdate();
             if (rowsAffected > 0) {

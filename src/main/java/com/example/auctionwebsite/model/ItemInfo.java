@@ -9,12 +9,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class ItemInfo {
     private String id;
-    private String roomId;
     private String name;
+    private String roomId;
+    private String userID;
     private String price;
+    private String instantSellPrice;
     private String bid_price;
     private String description;
-    private String openTime;
-    private String endTime;
-    private String imageLink;
+    private boolean isAvailable;
 }

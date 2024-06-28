@@ -25,7 +25,7 @@ async function createRoom() {
             const data = await response.json();
             const roomId = data.message;
             console.log(roomId);
-            window.location.href = `Bidding room.html?id=${roomId}`;
+            window.location.href = `Bidding room.html?roomId=${roomId}&userId=${userId}`;
             alert(`Room created:, ${roomId}`);
         } else {
             const data = await response.json();

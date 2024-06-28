@@ -94,9 +94,6 @@ public class AuctionController {
                     item.setName(rs.getString("name"));
                     item.setPrice(rs.getString("price"));
                     item.setDescription(rs.getString("description"));
-                    item.setOpenTime(rs.getString("openTime"));
-                    item.setEndTime(rs.getString("endTime"));
-                    item.setImageLink(rs.getString("imageLink"));
                     items.add(item);
                 }
             }

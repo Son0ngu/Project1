@@ -21,7 +21,7 @@ async function submitForm() {
 
             alert(data.message);
             localStorage.setItem('userId', `${data.userId}`);
-            window.location.href = `Homepage.html?id=${data.userId}`;
+            window.location.href = `Homepage.html?userId=${data.userId}`;
         } else {
             const data = await response.json();
             alert(data.message || 'An unknown error occurred.');

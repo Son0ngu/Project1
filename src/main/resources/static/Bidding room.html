@@ -17,6 +17,9 @@
 </div>
 <div class="content">
     <h1>Bidding Room ID: 1</h1>
+
+    <button class="add-item-button"> <a href="InputItem.html">>Add New Item </a> </button>
+
     <div class="product">
         <img src="Assets/Perfume.jpg" alt="Product Image">
         <div>
@@ -30,20 +33,23 @@
             <p>Now on price: 1.000.000 vnd at 09/05/2024 * 15:59:20</p>
             <p>Bidding time: 10</p>
         </div>
-        <div class="price-calc">
-            <div>10.000 vnd</div>
-            <div>X</div>
-            <button id="quantity-button">x</button>
-            <div>=</div>
-            <div>100.000vnd</div>
-        </div>
-        <button id="bid-button">Bidding : 1.100.000 vnd</button>
+
+            <label> Item ID:</label>
+            <input type="text" id="ItemId" name="ItemId" placeholder="Enter the itemID" required> 
+
+
+            <label>Money:</label>
+            <input type="text" id="Bidding" name="Money" placeholder="Enter your bid amount" required>
+
+        <button id="bid-button" type="submit" class="SendMoneyBidding">Bidding </button>
     </div>
     <div class="footer">
-        <p>*Price step: 10.000 vnd</p>
         <button id="exit-button">Exit</button>
     </div>
 </div>
-<script src="Bidding%20room/Bidding%20room.js"></script>
 </body>
+
+<script src="Bidding%20room/Bidding%20room.js"></script>
+
+
 </html>
